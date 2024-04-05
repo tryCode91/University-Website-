@@ -1,0 +1,120 @@
+﻿@using Teaching.ViewModels
+@model StudentViewModel
+
+<div class="container d-flex align-items-center justify-content-center">
+    <div class="row">
+        <h3 class="text-center mb-4 mt-2">Update profile</h3>
+        <form method="post" asp-action="StudentDetail">
+            <!-- 2 column grid layout with text inputs for the first and last names -->
+            <div class="row mb-4">
+                <h5>Student</h5>
+                <div class="col">
+                    <div data-mdb-input-init class="form-outline">
+                        <input type="text" class="form-control" asp-for="@Model.Name"/>
+                        <label class="form-label" for="@Model.Name">Full name</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div data-mdb-input-init class="form-outline">
+                        <input type="text" class="form-control" asp-for="@Model.EmailAddress" />
+                        <label class="form-label" for="@Model.EmailAddress">Email Address</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mb-4">
+                <div class="col">
+                    <div data-mdb-input-init class="form-outline">
+                        <input type="text" class="form-control" asp-for="@Model.PhoneNumber" />
+                        <label class="form-label" for="@Model.PhoneNumber">Phone number</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div data-mdb-input-init class="form-outline">
+                        <input type="text" class="form-control" asp-for="@Model.Age" />
+                        <label class="form-label" for="@Model.Age">Age</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-4">
+                <h5>Address</h5>
+                <div class="col">
+                    <div data-mdb-input-init class="form-outline">
+                        <input type="text" class="form-control" asp-for="@Model.Address.Country" />
+                        <label class="form-label" for="@Model.Address.Country">Country</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div data-mdb-input-init class="form-outline">
+                        <input type="text" class="form-control" asp-for="@Model.Address.City" />
+                        <label class="form-label" for="@Model.Address.City">City</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-4">
+                <div class="col">
+                    <div data-mdb-input-init class="form-outline">
+                        <input type="text" class="form-control" asp-for="@Model.Address.Street" />
+                        <label class="form-label" for="@Model.Address.Street">Street</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div data-mdb-input-init class="form-outline">
+                        <input type="text" class="form-control" asp-for="@Model.Address.PostalCode" />
+                        <label class="form-label" for="@Model.Address.PostalCode">Postal code</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-4">
+                <h5>Social Media</h5>
+                <div class="col">
+                    <div data-mdb-input-init class="form-outline">
+                        <input type="text" class="form-control" asp-for="@Model.SocialMedia.Facebook" />
+                        <label class="form-label" for="@Model?.SocialMedia?.Facebook">Facebook</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div data-mdb-input-init class="form-outline">
+                        <input type="text" class="form-control" asp-for="@Model.SocialMedia.Twitter" />
+                        <label class="form-label" for="@Model.SocialMedia.Twitter"><strong>X</strong> (old Twitter)</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-4">
+                <div class="col">
+                    <div data-mdb-input-init class="form-outline">
+                        <input type="text" class="form-control" asp-for="@Model.SocialMedia.Youtube" />
+                        <label class="form-label" for="@Model.SocialMedia.Youtube">Youtube</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div data-mdb-input-init class="form-outline">
+                        <input type="text" class="form-control" asp-for="@Model.SocialMedia.Linkedin" />
+                        <label class="form-label" for="@Model.SocialMedia.Linkedin">Linkedin</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+
+                    <div class="d-flex flex-row justify-content-end mb-4">
+                        <button type="submit" class="btn btn-outline-primary">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-send" viewBox="0 0 16 16">
+                                <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576zm6.787-8.201L1.591 6.602l4.339 2.76z" />
+                            </svg>
+                            Save
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>

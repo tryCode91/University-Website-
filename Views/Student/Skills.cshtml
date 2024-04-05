@@ -1,0 +1,72 @@
+﻿@using Teaching.ViewModels
+@model SkillsViewModel
+
+<div class="row">
+    <div class="col-7">
+        <h3 class="text-center mb-4 mt-2">Write something about yourself</h3>
+
+        <form asp-action="Skills" method="post" class="mx-1 mx-md-4">
+
+            <div class="d-flex flex-row align-items-center mb-4">
+                <div class="form-outline flex-fill mb-0">
+                    <label for="SkillsDescription">Skills description</label>
+                    <textarea cols="10" rows="4" maxlength="50" placeholder="I learned to understand the inner mechanics of computers when i was 7 ..." class="form-control" asp-for="SkillsDescription"></textarea>
+                </div>
+            </div>
+
+            <div class="d-flex flex-row align-items-center mb-4">
+                <div class="form-outline flex-fill mb-0">
+                    <label for="ExperienceOne">#Experience 1</label>
+                    <input type="text" placeholder="C#" class="form-control" asp-for="ExperienceOne"/>
+                </div>
+            </div>
+
+            <div class="d-flex flex-row align-items-center mb-4">
+                <div class="form-outline flex-fill mb-0">
+                    <label for="ExperienceOnePercent">Set Percent<i>(0 - 100)</i></label>
+                    <input type="number" class="form-control" asp-for="ExperienceOnePercent" />
+                </div>
+            </div>
+
+            <div class="d-flex flex-row align-items-center mb-4">
+                <div class="form-outline flex-fill mb-0">
+                    <label for="ExperienceTwo">#Experience 2</label>
+                    <input type="text" placeholder="C++" class="form-control" asp-for="ExperienceTwo" />
+                </div>
+            </div>
+
+            <div class="d-flex flex-row align-items-center mb-4">
+                <div class="form-outline flex-fill mb-0">
+                    <label for="ExperienceTwoPercent">Set Percent<i>(0 - 100)</i></label>
+                    <input type="number" class="form-control" asp-for="ExperienceTwoPercent" />
+                </div>
+            </div>
+
+            <div class="d-flex flex-row align-items-center mb-4">
+                <div class="form-outline flex-fill mb-0">
+                    <label for="ExperienceThree">#Experience 3</label>
+                    <input type="text" placeholder="Python" class="form-control" asp-for="ExperienceThree" />
+                </div>
+            </div>
+
+            <div class="d-flex flex-row align-items-center mb-4">
+                <div class="form-outline flex-fill mb-0">
+                    <label for="ExperienceThreePercent">Set Percent<i>(0 - 100)</i></label>
+                    <input type="number" class="form-control" asp-for="ExperienceThreePercent" />
+                </div>
+            </div>
+
+            @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+
+            <div class="d-flex flex-row justify-content-end mb-4">
+                <button type="submit" class="btn btn-outline-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-send" viewBox="0 0 16 16">
+                        <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576zm6.787-8.201L1.591 6.602l4.339 2.76z" />
+                    </svg>
+                    Send
+                </button>
+
+            </div>
+        </form>
+    </div>
+</div>

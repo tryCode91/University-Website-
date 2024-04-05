@@ -1,0 +1,181 @@
+﻿@model Student
+
+<div class="container mt-4">
+    <div class="row justify-content-center bg-white py-5 px-3 rounded border border-white">
+        <div class="col-md-7 col-lg-4 mb-5 mb-lg-0 wow fadeIn">
+            <div class="card border-0 shadow">
+
+                @if(@ViewBag.ProfileImage == "")
+                {
+                    <img src="https://www.bootdey.com/img/Content/avatar/avatar6.png" alt="profile-img" class="img-fluid profile-image">
+                } else
+                {
+                    <img src="@("~/image/" + Model?.ProfileImage?.ImageName)" asp-append-version="true" alt="profile-img" class="img-fluid profile-image">
+                }
+                
+                <a class="btn btn-outline-primary" asp-controller="Student" asp-action="ProfileImage" asp-route-id="@Model.StudentId">
+                    Change Image <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-image" viewBox="0 0 16 16">
+                        <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0" />
+                        <path d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1z" />
+                    </svg>
+                </a>
+
+                <div class="card-body p-1-9 p-xl-5">
+                    <div class="mb-4">
+                        <h3 class="h4 mb-0">@Model?.Name</h3>
+                        <span class="text-primary">Student</span>
+                    </div>
+                    <ul class="list-unstyled mb-4">
+                        <li class="mb-3"><a href="#!" class="link-student-page"><i class="far fa-envelope display-25 me-3 text-secondary"></i>@Model?.EmailAddress</a></li>
+                        <li class="mb-3"><a href="#!" class="link-student-page"><i class="fas fa-mobile-alt display-25 me-3 text-secondary"></i>@Model?.PhoneNumber</a></li>
+                        <li><a href="#!" class="link-student-page"><i class="fas fa-map-marker-alt display-25 me-3 text-secondary"></i>@Model?.Address?.PostalCode, @Model?.Address?.City, @Model?.Address?.Country</a></li>
+                    </ul>
+                    <ul class="social-icon-style2 ps-0">
+                        <li><a href="@Model?.SocialMedia?.Facebook" target="_blank" class="rounded-3 link-student-page"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="@Model?.SocialMedia?.Twitter" target="_blank" class="rounded-3 link-student-page"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="@Model?.SocialMedia?.Youtube" target="_blank" class="rounded-3 link-student-page"><i class="fab fa-youtube"></i></a></li>
+                        <li><a href="@Model?.SocialMedia?.Linkedin" target="_blank" class="rounded-3 link-student-page"><i class="fab fa-linkedin-in"></i></a></li>
+                    </ul>
+                    <a class="" asp-area="" asp-controller="Student" asp-action="StudentDetail" asp-route-id="@Model.StudentId">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
+                            <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001m-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-8">
+            <div class="ps-lg-1-6 ps-xl-5">
+                <div class="mb-5 wow fadeIn">
+                    <div class="text-start mb-1-6 wow fadeIn">
+                        <h2 class="h1 mb-0 text-primary">
+                            #About Me  <a class="" asp-area="" asp-controller="Student" asp-action="ProfileAbout" asp-route-id="@Model.StudentId">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
+                                    <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001m-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708z" />
+                                </svg>
+                            </a>
+                        </h2>
+                    </div>
+                    @if(@ViewBag.About == "")
+                    {
+                        <p>Write something about yourself</p>
+
+                    } else
+                    {
+                        <p>@Model?.UserProfile?.About</p>
+                    }
+
+                </div>
+                <div class="mb-5 wow fadeIn">
+                    <div class="text-start mb-1-6 wow fadeIn">
+                        <h2 class="mb-0 text-primary">
+                            #Education <a class="" asp-area="" asp-controller="Student" asp-action="Education" asp-route-id="@Model.StudentId">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
+                                    <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001m-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708z" />
+                                </svg>
+                            </a>
+                        </h2>
+                    </div>
+                    <div class="row mt-n4">
+                        <div class="col-sm-6 col-xl-4 mt-4">
+                            <div class="card text-center border-0 rounded-3">
+                                <div class="card-body">
+                                    <i class="ti-bookmark-alt icon-box medium rounded-3 mb-4"></i>
+                                    <h3 class="h5 mb-3">Education</h3>
+                                    @if (@ViewBag.Education == "")
+                                    {
+                                        <p class="mb-0"> Something about education</p>
+                                    }
+                                    else
+                                    {
+                                        <p class="mb-0">@Model?.Education?.EducationDescription</p>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-xl-4 mt-4">
+                            <div class="card text-center border-0 rounded-3">
+                                <div class="card-body">
+                                     <i class="ti-pencil-alt icon-box medium rounded-3 mb-4"></i>
+                                    <h3 class="h5 mb-3">Career Start</h3>
+                                    @if (@ViewBag.Career == "")
+                                    {
+                                        <p class="mb-0"> Something about career</p>
+                                    }
+                                    else
+                                    {
+                                        <p class="mb-0">@Model?.Education?.CareerDescription</p>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-xl-4 mt-4">
+                            <div class="card text-center border-0 rounded-3">
+                                <div class="card-body">
+                                    <i class="ti-medall-alt icon-box medium rounded-3 mb-4"></i>
+                                    <h3 class="h5 mb-3">Experience</h3>
+                                    @if(@ViewBag.Experience == "")
+                                    {
+                                        <p class="mb-0"> Something about experience</p>
+                                    } else
+                                    {
+                                        <p class="mb-0">@Model?.Education?.ExperienceDescription</p>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="wow fadeIn">
+                    <div class="text-start mb-1-6 wow fadeIn">
+                        <h2 class="mb-0 text-primary">
+                            #Skills &amp; Experience <a class="" asp-area="" asp-controller="Student" asp-action="Skills" asp-route-id="@Model.StudentId">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
+                                    <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001m-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708z" />
+                                </svg>
+                            </a>
+                        </h2>
+                    </div>
+                    <p class="mb-4">
+                        @if(ViewBag.Skills == "")
+                        {
+                            <span>Showcase your amazing skills here</span>
+                        } else
+                        {
+                            @Model?.Skills?.SkillsDescription
+                        }
+                        </p>
+                    <div class="progress-style1">
+                        <div class="progress-text">
+                            <div class="row">
+                                <div class="col-6 fw-bold">@Model?.Skills?.ExperienceOne</div>
+                                <div class="col-6 text-end">@Model?.Skills?.ExperienceOnePercent%</div>
+                            </div>
+                        </div>
+                        <div class="custom-progress progress rounded-3 mb-4">
+                            <div class="animated custom-bar progress-bar slideInLeft" style="width:@Model?.Skills?.ExperienceOnePercent%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="@Model?.Skills?.ExperienceOnePercent" role="progressbar"></div>
+                        </div>
+                        <div class="progress-text">
+                            <div class="row">
+                                <div class="col-6 fw-bold">@Model?.Skills?.ExperienceTwo</div>
+                                <div class="col-6 text-end">@Model?.Skills?.ExperienceTwoPercent%</div>
+                            </div>
+                        </div>
+                        <div class="custom-progress progress rounded-3 mb-4">
+                            <div class="animated custom-bar progress-bar bg-secondary slideInLeft" style="width:@Model?.Skills?.ExperienceTwoPercent%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="@Model?.Skills?.ExperienceTwoPercent" role="progressbar"></div>
+                        </div>
+                        <div class="progress-text">
+                            <div class="row">
+                                <div class="col-6 fw-bold">@Model?.Skills?.ExperienceThree</div>
+                                <div class="col-6 text-end">@Model?.Skills?.ExperienceThreePercent%</div>
+                            </div>
+                        </div>
+                        <div class="custom-progress progress rounded-3">
+                            <div class="animated custom-bar progress-bar bg-dark slideInLeft" style="width:@Model?.Skills?.ExperienceThreePercent%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="@Model?.Skills?.ExperienceThreePercent" role="progressbar"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

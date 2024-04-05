@@ -1,0 +1,42 @@
+﻿@using Teaching.ViewModels
+@model CourseViewModel
+
+<div class="container mt-5">
+    <div class="row d-flex flex-row align-items-center">
+
+        @using (Html.BeginForm("Enroll", "Student", FormMethod.Post))
+        {
+
+            <div class="d-flex flex-row align-items-center mb-4">
+                <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                <div class="form-outline flex-fill mb-0">
+                    
+                    @if(@ViewBag.StudentEnrolled == "True")
+                    {
+                        <label class="form-label" asp-for="CourseId">You have already applied for this class</label>
+                        <div class="row">
+                            <div class="col-2">
+                                <input type="submit" value="Go Back" name="enrollment" asp-for="@Model.CourseId" class="btn btn-outline-primary form-control" />
+                            </div>
+                        </div>
+                    } 
+                    else
+                    {
+
+                        <label class="form-label" asp-for="CourseId">Are you sure that you would like to enroll in the class?</label>
+                        <div class="row">
+                            <div class="col-2">
+                                <input type="submit" value="Yes" name="enrollment" asp-for="@Model.CourseId" class="btn btn-outline-primary form-control" />
+                            </div>
+
+                            <div class="col-2">
+                                <input type="submit" value="No" name="enrollment" asp-for="@Model.CourseId" class="btn btn-outline-primary form-control" />
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        }
+
+    </div>
+</div>
